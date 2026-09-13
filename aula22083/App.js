@@ -1,33 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Pressable, Image, ScrollView } from 'react-native';
+import { useState } from 'react';
 
 export default function App() {
   return (
     <View style={styles.viewPrincipal}>
-      <View style={styles.cabecalho}>
-        <View style={styles.simbololos}></View>
-        <View style={styles.instagram}>
-          <Text style={styles.porqueetutaolhandoomeucodigoprofessor}>Garotas do X</Text>
-        </View>
-        <View style={styles.simbololos}></View>
+      <Text style={styles.texto}>Olá Mundo!</Text>
+      <View style={styles.quadrado}></View>
+      <View style={styles.circulo}></View>
+      <View style={styles.caixaBorda}>
+        <Text>Estou dentro, bem no fundo de uma caixa</Text>
       </View>
 
-      <View style={styles.postsheteros}>
-        <View style={styles.esferasdodragao}></View>
-        <View style={styles.esferasdodragao}></View>
-        <View style={styles.esferasdodragao}></View>
-        <View style={styles.esferasdodragao}></View>
-      </View>
-
-      <View style={styles.videoneonlaranja}></View>
-
-      <View style={styles.rodabota}>
-        <View style={styles.quadradinhodeoito}></View>
-        <View style={styles.quadradinhodeoito}></View>
-        <View style={styles.quadradinhodeoito}></View>
-        <View style={styles.quadradinhodeoito}></View>
-        <View style={styles.quadradinhodeoito}></View>
-      </View>
+      <TextInput style={styles.campo} placeholder="Digite alguma coisa"/>
+      <Button title="Clique aqui" onPress={() => alert("Parabéns, você aprendeu a clicar")}/>
+      <Pressable style={styles.botao} onPress={() => alert("Funcionou!")}>
+        <Text style={styles.textoBotao}>Me aperta com gentileza</Text>
+      </Pressable>
+      <Image source={require('./assets/icon.png')} style={styles.imagem}/>
+      <ScrollView>
+        <Text>Parte 1</Text>
+        <Text>Parte 2</Text>
+        <Text>Parte 3</Text>
+        <Text>Parte 4</Text>
+      </ScrollView>
     </View>
   );
 }
@@ -37,72 +33,69 @@ const styles = StyleSheet.create({
   viewPrincipal: {
     flex: 1,
     paddingTop: 60,
-    backgroundColor: "black",
-  },
-
-  cabecalho: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-
-  videoneonlaranja: {
-  flex: 1,
-  flexDirection: "column",
-  justifyContent: "space-between",
-  alignItems: "center",
-  padding: 40,
-  backgroundColor: "orange",
-  marginTop: 20,
-  marginHorizontal: 10,
-},
-
-  simbololos: {
-    width: 40,
-    height: 40,
     backgroundColor: "white",
   },
 
-  instagram: {
-    width: 150,
-    height: 40,
-    backgroundColor: "white",
-    justifyContent: "center",
-    alignItems: "center",
+  texto: {
+    fontSize: 25,
+    color: "purple",
   },
 
-  porqueetutaolhandoomeucodigoprofessor: {
-    color: "black",
-    fontSize: 22, //VOTA VOTA E CONFIA 22 É BOLSONARO
+  quadrado: {
+    width: 100,
+    height: 100,
+    backgroundColor: "red",
   },
 
-  rodabota: {
-  flexDirection: "row",
-  justifyContent: "space-around",
-  alignItems: "center",
-  backgroundColor: "black",
-  paddingVertical: 15,
-},
-
-  quadradinhodeoito: {
-  width: 40,
-  height: 40,
-  backgroundColor: "white",
-},
-
-  postsheteros: {
-  flexDirection: "row",
-  justifyContent: "space-around",
-  alignItems: "center",
-  gap: 0,
-  marginTop: 30,
-},
-
-  esferasdodragao: {
-    width: 70,
-    height: 70,
+  circulo: {
+    width: 100,
+    height: 100,
     borderRadius: 50,
+    backgroundColor: "blue",
+  },
+
+  caixaBorda: {
+    width: 250,
+    padding: 20,
+    borderWidth: 3,
+    borderColor: "purple",
+    borderRadius: 15,
+  },
+
+  campo: {
+    width: 250,
+    borderWidth: 2,
+    borderColor: "black",
+    borderRadius: 10,
+    padding: 10,
+  },
+
+  botao: {
     backgroundColor: "purple",
+    padding: 15,
+    borderRadius: 15,
+  },
+
+  textoBotao: {
+    color: "white",
+    fontSize: 18,
+  },
+
+  imagem: {
+    width: 150,
+    height: 150,
+  },
+
+  linha: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+
+  bolinha: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: "orange",
   },
 });
 
